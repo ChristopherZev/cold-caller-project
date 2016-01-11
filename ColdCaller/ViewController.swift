@@ -55,7 +55,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         lblLocation.text = "\(newLocation.coordinate.latitude), \(newLocation.coordinate.longitude)"
         
-        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let span = MKCoordinateSpanMake(0.005, 0.005)
         let region = MKCoordinateRegion(center: newLocation.coordinate, span: span)
         mapView.setRegion(region, animated: true)
         locationManager.stopUpdatingLocation()
