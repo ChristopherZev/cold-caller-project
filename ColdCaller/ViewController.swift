@@ -33,8 +33,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-     
+        let coordLoc = CLLocationCoordinate2D(latitude: 40.759 , longitude: -73.984)
+        // Annotation coordinate test.
         
+     
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordLoc
+        annotation.title = "Cold Call Opp"
+        annotation.subtitle = "Big name CEO!"
+        
+        mapView.addAnnotation(annotation)
+        
+        //Named annotation test(Cold Call Opp) and added it to mapView.
         
     }
 
