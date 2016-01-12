@@ -71,7 +71,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
         
     }
-    
+    // This IBaction Func is for add a pin to the mapView.
+    @IBAction func addPin(sender: UILongPressGestureRecognizer) {
+        
+        let location = sender.locationInView(self.mapView)
+        //Lets one know where the user touched on the mapView.
+        let coordLoc = self.mapView.convertPoint(location, toCoordinateFromView: self.mapView)
+        //Converts touched point to coordinate.
+        
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = coordLoc
+        annotation.title = "newPin"
+        annotation.subtitle = "Big name COO!"
+        //Annotation settings for a new pin using the coordinate above.
+        
+        
+        //self.mapView.removeAnnotations(mapView.annotations)
+        //Only comment back in if you want to add only one pin at a time.
+        
+        self.mapView.addAnnotation(annotation)
+        
+        
+        
+    }
     
     
 }

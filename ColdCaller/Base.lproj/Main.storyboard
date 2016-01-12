@@ -21,8 +21,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="ae9-Su-aFe">
-                                <rect key="frame" x="6" y="81" width="307" height="421"/>
+                                <rect key="frame" x="6" y="81" width="307" height="430"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="gd1-PS-oHj" appends="YES" id="w1B-El-ja2"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="X4J-9l-XoP">
                                 <rect key="frame" x="20" y="43" width="46" height="30"/>
@@ -38,6 +42,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="gd1-PS-oHj">
+                    <connections>
+                        <action selector="addPin:" destination="BYZ-38-t0r" id="c82-Yz-aAp"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="207" y="210"/>
         </scene>
