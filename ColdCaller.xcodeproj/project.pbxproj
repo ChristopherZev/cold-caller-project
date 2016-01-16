@@ -98,6 +98,7 @@
 		A1D174D31C41FAAF00604546 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = ChristopherZev;
@@ -294,6 +295,7 @@
 				A1D174EF1C41FAAF00604546 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,54 +1,91 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ColdCaller" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GBn-3J-NS7"/>
+                        <viewControllerLayoutGuide type="bottom" id="JdC-2B-FlS"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rku-ph-GI9">
-                                <rect key="frame" x="20" y="24" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M3C-lb-dH2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="qO0-F9-dba"/>
+                                </connections>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mR4-1c-dPv">
+                                <rect key="frame" x="6" y="20" width="200" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="ae9-Su-aFe">
-                                <rect key="frame" x="6" y="81" width="307" height="430"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtP-gL-3pp">
+                                <rect key="frame" x="238" y="43" width="70" height="30"/>
+                                <state key="normal" title="Directions"/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="gd1-PS-oHj" appends="YES" id="w1B-El-ja2"/>
+                                    <action selector="showDirections:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OOD-5q-YA1"/>
                                 </connections>
-                            </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="X4J-9l-XoP">
-                                <rect key="frame" x="20" y="43" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start"/>
+                            </button>
+                            <segmentedControl contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ymr-4P-cwh">
+                                <rect key="frame" x="37" y="507" width="246" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Sattelite "/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="segmentControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="Gsa-gi-4WR"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3H-m5-0V0">
+                                <rect key="frame" x="0.0" y="43" width="81" height="30"/>
+                                <state key="normal" title="Locate me"/>
+                                <connections>
+                                    <action selector="startGps:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CqR-KW-pBj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="ymr-4P-cwh" firstAttribute="centerX" secondItem="M3C-lb-dH2" secondAttribute="centerX" id="0Pm-oU-dAE"/>
+                            <constraint firstItem="M3C-lb-dH2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="2hI-E4-cno"/>
+                            <constraint firstAttribute="trailing" secondItem="M3C-lb-dH2" secondAttribute="trailing" id="4yT-eo-3aO"/>
+                            <constraint firstItem="M3C-lb-dH2" firstAttribute="bottom" secondItem="JdC-2B-FlS" secondAttribute="top" id="QgK-Sw-rb6"/>
+                            <constraint firstItem="M3C-lb-dH2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SPZ-Nz-caB"/>
+                            <constraint firstItem="JdC-2B-FlS" firstAttribute="top" secondItem="ymr-4P-cwh" secondAttribute="bottom" constant="39" id="lqH-gu-Xmq"/>
+                            <constraint firstItem="ymr-4P-cwh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="21" id="sSs-KV-OaF"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="gd1-PS-oHj" appends="YES" id="krF-lK-b2D"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="lblLocation" destination="rku-ph-GI9" id="RSP-V4-rm2"/>
-                        <outlet property="mapView" destination="ae9-Su-aFe" id="rnb-1J-98b"/>
+                        <outlet property="lblLocation" destination="mR4-1c-dPv" id="kmp-SN-0dh"/>
+                        <outlet property="mapView" destination="M3C-lb-dH2" id="61W-BJ-v59"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="gd1-PS-oHj">
                     <connections>
-                        <action selector="addPin:" destination="BYZ-38-t0r" id="c82-Yz-aAp"/>
+                        <action selector="addPin:" destination="BYZ-38-t0r" id="KuA-6e-IOb"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="207" y="210"/>
+            <point key="canvasLocation" x="204" y="190"/>
         </scene>
     </scenes>
 </document>
